@@ -1,37 +1,49 @@
 object tom {
-    var energia = 50
-    var metrosCorridos = 24
+  var energia = 50
+  var metrosCorridos = 24
 
-    method energia() = energia
-    method metrosCorridos() = metrosCorridos
-    method velocidadMaxima() = 5 + energia/10
-    method definirMetrosCorridos(nuevoValor) {
-      metrosCorridos = nuevoValor
+  method energia() = energia
+  method metrosCorridos() = metrosCorridos
+  method velocidadMaxima() = 5 + energia/10
+  method definirMetrosCorridos(nuevoValor) {
+    metrosCorridos = nuevoValor
+  }
+  method correr() {
+    energia -= metrosCorridos/2
+  }
+  method comerRaton(raton) {
+    energia += 12 + raton.peso()
+  }
+  // Parte 2
+  method puedeLlegarAlRaton(distancia) = self.energia() > distancia
+  method puedeCazar(raton, distancia) {
+    if (self.puedeLlegarAlRaton(distancia)) {
+      self.comerRaton(raton)
     }
-    method correr() {
-      energia -= metrosCorridos/2
-    }
-    method comerRaton(raton) {
-      energia += 12 + raton.peso()
-    }
+  }
 }
 
 object jerry {
-    var peso = edad * 20
-    var edad = 2
+  var edad = 2
 
-    method peso() = peso
-    method edad() = edad
+  method peso() = edad * 20
+  method edad() = edad
+  method cumplirAños(añosCumplidos) {
+    edad += añosCumplidos
+  }
 }
 
 object nibbles {
-    var peso = 35
+  var peso = 35
 
-    method peso() = peso
+  method peso() = peso
 }
 
 // Inventar otro ratón
 
 object shun {
-  
+  var peso = 40
+  var edad = 2
+
+  method peso() = peso * edad
 }
