@@ -29,9 +29,7 @@ object jerry {
 }
 
 object nibbles {
-  var peso = 35
-
-  method peso() = peso
+  method peso() = 35
 }
 
 // Inventar otro ratón
@@ -41,4 +39,10 @@ object shun {
   var edad = 2
 
   method peso() = peso * edad
+  method cambiarPeso(nuevoPeso) {
+    peso = nuevoPeso
+  }
+  method cumplirAños(añosCumplidos) {
+    edad += añosCumplidos
+  }
 }
