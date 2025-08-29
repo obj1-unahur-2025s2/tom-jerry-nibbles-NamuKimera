@@ -3,16 +3,14 @@ object tom {
 
   method energia() = energia
   method velocidadMaxima() = 5 + energia/10
-  method correr(metrosCorridos) {
-    energia -= metrosCorridos/2
-  }
+  method energiaConsumida(metros) = metros/2
   method comerRaton(raton) {
     energia += 12 + raton.peso()
   }
   // Parte 2
-  method puedeLlegarAlRaton(distancia) = self.energia() > distancia/2
-  method puedeCazar(raton, distancia) {
-    if (self.puedeLlegarAlRaton(distancia)) {
+  method puedeLlegarAlRaton(metros) = self.energia() > self.energiaConsumida(metros)
+  method cazar(raton, metros) {
+    if (self.puedeLlegarAlRaton(metros)) {
       self.comerRaton(raton)
     }
   }
